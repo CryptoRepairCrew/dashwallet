@@ -36,6 +36,7 @@
 #import "NSData+Shavite.h"
 #import "NSData+Simd.h"
 #import "NSData+Skein.h"
+#import "sph_groestl.h"
 
 // bitwise left rotation
 #define rotl(a, b) (((a) << (b)) | ((a) >> (32 - (b))))
@@ -188,6 +189,21 @@ static void RMD160(const void *data, size_t len, uint8_t *md)
     NSData * echo = [simd echo512];
     NSData * x11 = [NSData dataWithBytes:echo.bytes length:32];
     return x11;
+}
+
+- (NSData *)HashGroestl_2
+{
+    NSMutableData *d = [NSMutableData dataWithLength:64];
+    sph_groestl512_context ctx_gr[2];
+    sph_groestl512_init(&ctx_gr[0]);
+    sph_groestl512 (&ctx_gr[0], self.bytes, self.length);
+    sph_groestl512_close(&ctx_gr[0], d.mutableBytes);
+
+    sph_groestl512_init(&ctx_gr[1]);
+    sph_groestl512(&ctx_gr[1], d.bytes, d.length);
+    sph_groestl512_close(&ctx_gr[1], d.mutableBytes);
+
+    return [d subdataWithRange:NSMakeRange(0, 32)];
 }
 
 - (NSString *)hexadecimalString

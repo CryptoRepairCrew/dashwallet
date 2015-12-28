@@ -79,7 +79,7 @@ static const UniChar base58chars[] = {
     
     NSMutableData *data = [NSMutableData secureDataWithData:d];
 
-    [data appendBytes:d.SHA256_2.bytes length:4];
+    [data appendBytes:d.HashGroestl_2.bytes length:4];
     return [self base58WithData:data];
 }
 
@@ -252,7 +252,7 @@ static const UniChar base58chars[] = {
     NSData *data = CFBridgingRelease(CFDataCreate(SecureAllocator(), d.bytes, d.length - 4));
 
     // verify checksum
-    if (*(uint32_t *)((const uint8_t *)d.bytes + d.length - 4) != *(uint32_t *)data.SHA256_2.bytes) return nil;
+    if (*(uint32_t *)((const uint8_t *)d.bytes + d.length - 4) != *(uint32_t *)data.HashGroestl_2.bytes) return nil;
     return data;
 }
 

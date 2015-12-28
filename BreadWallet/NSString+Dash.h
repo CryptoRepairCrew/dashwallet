@@ -25,11 +25,11 @@
 
 #import <Foundation/Foundation.h>
 
-#define DASH_PUBKEY_ADDRESS      76
-#define DASH_SCRIPT_ADDRESS      16
-#define DASH_PUBKEY_ADDRESS_TEST 139
-#define DASH_SCRIPT_ADDRESS_TEST 19
-#define DASH_PRIVKEY             204
+#define DASH_PUBKEY_ADDRESS      36
+#define DASH_SCRIPT_ADDRESS      5
+#define DASH_PUBKEY_ADDRESS_TEST 111
+#define DASH_SCRIPT_ADDRESS_TEST 196
+#define DASH_PRIVKEY             128
 #define DASH_PRIVKEY_TEST        239
 
 #define BITCOIN_PUBKEY_ADDRESS      0

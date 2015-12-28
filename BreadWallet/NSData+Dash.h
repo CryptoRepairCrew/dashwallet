@@ -54,6 +54,7 @@
 - (NSData *)hash160;
 - (NSData *)reverse;
 - (NSData *)x11;
+- (NSData *)HashGroestl_2;
 
 - (NSString *)hexadecimalString;
 + (NSData *)dataFromHexString:(NSString *)string;

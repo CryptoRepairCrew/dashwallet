@@ -111,7 +111,7 @@
     }
     
     _lockTime = [message UInt32AtOffset:off]; // tx locktime
-    _txHash = self.data.SHA256_2;
+    _txHash = self.data.SHA256;
     
     NSString * outboundShapeshiftAddress = [self shapeshiftOutboundAddress];
     if (outboundShapeshiftAddress) {
@@ -382,7 +382,7 @@ sequence:(uint32_t)sequence
         if (keyIdx == NSNotFound) continue;
         
         NSMutableData *sig = [NSMutableData data];
-        NSData *hash = [self toDataWithSubscriptIndex:i].SHA256_2;
+        NSData *hash = [self toDataWithSubscriptIndex:i].SHA256;
         NSMutableData *s = [NSMutableData dataWithData:[keys[keyIdx] sign:hash]];
         NSArray *elem = [self.inScripts[i] scriptElements];
         
@@ -397,7 +397,7 @@ sequence:(uint32_t)sequence
     }
     
     if (! [self isSigned]) return NO;
-    _txHash = self.data.SHA256_2;
+    _txHash = self.data.SHA256;
     return YES;
 }
 

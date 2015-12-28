@@ -36,10 +36,10 @@
                    NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"]]
 #define HEADER_LENGTH      24
 #define MAX_MSG_LENGTH     0x02000000u
-#define MAX_GETDATA_HASHES 50000
+#define MAX_GETDATA_HASHES 7000
 #define ENABLED_SERVICES   0     // we don't provide full blocks to remote nodes
-#define PROTOCOL_VERSION   70103
-#define MIN_PROTO_VERSION  70103 // peers earlier than this protocol version not supported
+#define PROTOCOL_VERSION   70001
+#define MIN_PROTO_VERSION  70000 // peers earlier than this protocol version not supported
 #define LOCAL_HOST         0x7f000001u
 #define ZERO_HASH          [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH]
 #define CONNECT_TIMEOUT    3.0
@@ -741,8 +741,8 @@ services:(uint64_t)services
     NSTimeInterval t = [message UInt32AtOffset:l + 81*(count - 1) + 68] - NSTimeIntervalSince1970;
 
     if (count >= 2000 || t + WEEK_TIME_INTERVAL >= self.earliestKeyTime - 2*60*60) {
-        NSData *firstHash = [message subdataWithRange:NSMakeRange(l, 80)].x11,
-               *lastHash = [message subdataWithRange:NSMakeRange(l + 81*(count - 1), 80)].x11;
+        NSData *firstHash = [message subdataWithRange:NSMakeRange(l, 80)].HashGroestl_2,
+               *lastHash = [message subdataWithRange:NSMakeRange(l + 81*(count - 1), 80)].HashGroestl_2;
 
         if ((t + WEEK_TIME_INTERVAL >= self.earliestKeyTime - 2*60*60)) { // request blocks for the remainder of the chain
             t = [message UInt32AtOffset:l + 81 + 68] - NSTimeIntervalSince1970;
@@ -752,7 +752,7 @@ services:(uint64_t)services
                 t = [message UInt32AtOffset:off + 81 + 68] - NSTimeIntervalSince1970;
             }
 
-            lastHash = [message subdataWithRange:NSMakeRange(off, 80)].x11;
+            lastHash = [message subdataWithRange:NSMakeRange(off, 80)].HashGroestl_2;
             NSLog(@"%@:%u calling getblocks with locators: %@", self.host, self.port, @[lastHash, firstHash]);
             [self sendGetblocksMessageWithLocators:@[lastHash, firstHash] andHashStop:nil];
         }
@@ -1261,10 +1261,10 @@ services:(uint64_t)services
                     if (self.msgPayload.length < length) continue; // wait for more stream input
                 }
                 
-                if (*(const uint32_t *)self.msgPayload.SHA256_2.bytes != checksum) { // verify checksum
+                if (*(const uint32_t *)self.msgPayload.HashGroestl_2.bytes != checksum) { // verify checksum
                     [self error:@"error reading %@, invalid checksum %x, expected %x, payload length:%u, expected "
-                     "length:%u, SHA256_2:%@", type, *(const uint32_t *)self.msgPayload.SHA256_2.bytes, checksum,
-                     (int)self.msgPayload.length, length, self.msgPayload.SHA256_2];
+                     "length:%u, HashGroestl_2:%@", type, *(const uint32_t *)self.msgPayload.HashGroestl_2.bytes, checksum,
+                     (int)self.msgPayload.length, length, self.msgPayload.HashGroestl_2];
                      goto reset;
                 }
 

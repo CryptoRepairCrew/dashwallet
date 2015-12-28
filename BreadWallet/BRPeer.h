@@ -26,15 +26,15 @@
 #import <Foundation/Foundation.h>
 
 #if DASH_TESTNET
-#define DASH_STANDARD_PORT          19999
+#define DASH_STANDARD_PORT          1777
 #else
-#define DASH_STANDARD_PORT          9999
+#define DASH_STANDARD_PORT          1331
 #endif
 
 #define DASH_TIMEOUT_CODE           1001
 
 #define SERVICES_NODE_NETWORK 1 // services value indicating a node carries full blocks, not just headers
-#define USER_AGENT            [NSString stringWithFormat:@"/Dashwallet iPhone:%@/",\
+#define USER_AGENT            [NSString stringWithFormat:@"/Groestlwallet iPhone:%@/",\
                                NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"]]
 
 #define WEEK_TIME_INTERVAL 604800 //7*24*60*60

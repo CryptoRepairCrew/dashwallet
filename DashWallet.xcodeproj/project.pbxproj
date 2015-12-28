@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		732A77AE1C31BD2E00D99E75 /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 752E289F19234AE300DB5A3C /* BRAddressEntity.m */; };
 		7525B619192453840041C0F2 /* BRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7525B618192453840041C0F2 /* BRNavigationBar.m */; };
-		752E28AA19234AE300DB5A3C /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 752E289F19234AE300DB5A3C /* BRAddressEntity.m */; };
 		752E28AB19234AE300DB5A3C /* BRMerkleBlockEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 752E28A119234AE300DB5A3C /* BRMerkleBlockEntity.m */; };
 		752E28AC19234AE300DB5A3C /* BRPeerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 752E28A319234AE300DB5A3C /* BRPeerEntity.m */; };
 		752E28AD19234AE300DB5A3C /* BRTransactionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 752E28A519234AE300DB5A3C /* BRTransactionEntity.m */; };
@@ -62,6 +62,8 @@
 		75D5F3F1191EC270004AB296 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75D5F3EF191EC270004AB296 /* InfoPlist.strings */; };
 		75D5F3F3191EC270004AB296 /* BreadWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F3F2191EC270004AB296 /* BreadWalletTests.m */; };
 		84F68C8A1975E9E2002FC300 /* BRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F68C891975E9E2002FC300 /* BRScanViewController.m */; };
+		DC807F1E1A9F655B00125DF2 /* sph_groestl.h in Headers */ = {isa = PBXBuildFile; fileRef = DC807F1B1A9F655B00125DF2 /* sph_groestl.h */; };
+		DC807F1F1A9F655B00125DF2 /* sph_types.h in Headers */ = {isa = PBXBuildFile; fileRef = DC807F1C1A9F655B00125DF2 /* sph_types.h */; };
 		FB00F6751B5101420061C2FB /* NSString+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00F6741B5101420061C2FB /* NSString+Bitcoin.m */; };
 		FB00F6761B5101420061C2FB /* NSString+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00F6741B5101420061C2FB /* NSString+Bitcoin.m */; };
 		FB00F67A1B542A340061C2FB /* DCShapeshiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00F6791B542A340061C2FB /* DCShapeshiftManager.m */; };
@@ -91,7 +93,6 @@
 		FB00F6AF1B5AE2AA0061C2FB /* StockSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00F69A1B5AE2AA0061C2FB /* StockSeries.m */; };
 		FB00F6B01B5AE2AA0061C2FB /* StockSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00F69A1B5AE2AA0061C2FB /* StockSeries.m */; };
 		FB3952371B918EEF0013BA41 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3952361B918EEF0013BA41 /* NotificationCenter.framework */; };
-		FB3952421B918EEF0013BA41 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB3952351B918EEF0013BA41 /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB39524B1B918F2C0013BA41 /* BRTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3952491B918F2C0013BA41 /* BRTodayViewController.m */; };
 		FB39524C1B918F2C0013BA41 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB39524A1B918F2C0013BA41 /* MainInterface.storyboard */; };
 		FB39524F1B918F4F0013BA41 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB39524D1B918F4F0013BA41 /* Media.xcassets */; };
@@ -110,7 +111,6 @@
 		FBCFA6D01B88D49100831F99 /* DCShapeshiftEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCFA6CF1B88D49100831F99 /* DCShapeshiftEntity.m */; };
 		FBD9DCCC1B95AE5700C422D1 /* DCMasternodeControlTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD9DCCB1B95AE5700C422D1 /* DCMasternodeControlTableViewController.m */; };
 		FBE49E961B7BB1830020FAA6 /* Dash-Light.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE49E951B7BB1830020FAA6 /* Dash-Light.png */; };
-		FBE49E9C1B7BE73C0020FAA6 /* NSAttributedString+Attachments.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE49E9B1B7BE73C0020FAA6 /* NSAttributedString+Attachments.m */; };
 		FBE49E9E1B7C86770020FAA6 /* FixedPeers.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBE49E9D1B7C86770020FAA6 /* FixedPeers.plist */; };
 		FBE689B81ABF160000467F4C /* NSData+Blake.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE689B71ABF160000467F4C /* NSData+Blake.m */; };
 		FBE689B91ABF160000467F4C /* NSData+Blake.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE689B71ABF160000467F4C /* NSData+Blake.m */; };
@@ -152,30 +152,11 @@
 			remoteGlobalIDString = 75D5F3BD191EC270004AB296;
 			remoteInfo = BreadWallet;
 		};
-		FB3952401B918EEF0013BA41 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75D5F3B6191EC270004AB296 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB3952341B918EEF0013BA41;
-			remoteInfo = TodayExtension;
-		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		FB3952471B918EEF0013BA41 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				FB3952421B918EEF0013BA41 /* TodayExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		732A77A81C31B56300D99E75 /* sph_groestl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = sph_groestl.h; sourceTree = "<group>"; };
+		732A77AC1C31BC4500D99E75 /* groestl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = groestl.c; sourceTree = "<group>"; };
 		7509C10C1AF3076000D03FD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7509C10D1AF3076000D03FD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		7509C10E1AF3076100D03FD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -369,6 +350,10 @@
 		75F27B0619DE2AB20047FC62 /* ccMemory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ccMemory.h; sourceTree = SOURCE_ROOT; };
 		84F68C881975E9E2002FC300 /* BRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRScanViewController.h; sourceTree = "<group>"; };
 		84F68C891975E9E2002FC300 /* BRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRScanViewController.m; sourceTree = "<group>"; };
+		DC807F151A9F652F00125DF2 /* libgroestl.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libgroestl.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC807F1A1A9F655B00125DF2 /* groestl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = groestl.c; sourceTree = "<group>"; };
+		DC807F1B1A9F655B00125DF2 /* sph_groestl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_groestl.h; sourceTree = "<group>"; };
+		DC807F1C1A9F655B00125DF2 /* sph_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_types.h; sourceTree = "<group>"; };
 		FB00F6731B5101420061C2FB /* NSString+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Bitcoin.h"; sourceTree = "<group>"; };
 		FB00F6741B5101420061C2FB /* NSString+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Bitcoin.m"; sourceTree = "<group>"; };
 		FB00F6781B542A340061C2FB /* DCShapeshiftManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCShapeshiftManager.h; sourceTree = "<group>"; };
@@ -487,6 +472,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC807F121A9F652F00125DF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB3952321B918EEF0013BA41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -596,6 +588,9 @@
 		7579F7FE19231D4600CA56F4 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				DC807F1A1A9F655B00125DF2 /* groestl.c */,
+				DC807F1B1A9F655B00125DF2 /* sph_groestl.h */,
+				DC807F1C1A9F655B00125DF2 /* sph_types.h */,
 				FBCFA6CA1B87B9F300831F99 /* MBProgressHUD */,
 				FBCFA6BF1B82158600831F99 /* FBShimmering */,
 				FB00F6801B5AE2AA0061C2FB /* BBStockChartView */,
@@ -704,6 +699,7 @@
 		75D5F3BF191EC270004AB296 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				DC807F151A9F652F00125DF2 /* libgroestl.dylib */,
 				75D5F3BE191EC270004AB296 /* dashwallet.app */,
 				75D5F3E5191EC270004AB296 /* DashWalletTests.xctest */,
 				FB3952351B918EEF0013BA41 /* TodayExtension.appex */,
@@ -927,6 +923,8 @@
 				FBE689DE1AC07C1800467F4C /* NSData+Skein.m */,
 				FBE4D98A1ABD652B007C3BA6 /* sph_types.h */,
 				FBBFEF631ABD796000CA937F /* aes_helper.c */,
+				732A77AC1C31BC4500D99E75 /* groestl.c */,
+				732A77A81C31B56300D99E75 /* sph_groestl.h */,
 			);
 			name = "Hash Utils";
 			sourceTree = "<group>";
@@ -941,6 +939,18 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC807F131A9F652F00125DF2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC807F1F1A9F655B00125DF2 /* sph_types.h in Headers */,
+				DC807F1E1A9F655B00125DF2 /* sph_groestl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXLegacyTarget section */
 		75001D3D1A1EE89500585F55 /* submodules */ = {
@@ -967,13 +977,11 @@
 				75D5F3BA191EC270004AB296 /* Sources */,
 				75D5F3BB191EC270004AB296 /* Frameworks */,
 				75D5F3BC191EC270004AB296 /* Resources */,
-				FB3952471B918EEF0013BA41 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				757FC2531ADA30D100A1FDF7 /* PBXTargetDependency */,
-				FB3952411B918EEF0013BA41 /* PBXTargetDependency */,
 			);
 			name = dashwallet;
 			productName = BreadWallet;
@@ -997,6 +1005,22 @@
 			productName = BreadWalletTests;
 			productReference = 75D5F3E5191EC270004AB296 /* DashWalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DC807F141A9F652F00125DF2 /* groestl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC807F161A9F652F00125DF2 /* Build configuration list for PBXNativeTarget "groestl" */;
+			buildPhases = (
+				DC807F121A9F652F00125DF2 /* Frameworks */,
+				DC807F131A9F652F00125DF2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = groestl;
+			productName = groestl;
+			productReference = DC807F151A9F652F00125DF2 /* libgroestl.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
 		};
 		FB3952341B918EEF0013BA41 /* TodayExtension */ = {
 			isa = PBXNativeTarget;
@@ -1029,7 +1053,7 @@
 						CreatedOnToolsVersion = 6.1;
 					};
 					75D5F3BD191EC270004AB296 = {
-						DevelopmentTeam = 44RJ69WHFF;
+						DevelopmentTeam = NBF6WZ6HKJ;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1045,9 +1069,12 @@
 					75D5F3E4191EC270004AB296 = {
 						TestTargetID = 75D5F3BD191EC270004AB296;
 					};
+					DC807F141A9F652F00125DF2 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 					FB3952341B918EEF0013BA41 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 44RJ69WHFF;
+						DevelopmentTeam = NBF6WZ6HKJ;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1090,6 +1117,7 @@
 				75D5F3E4191EC270004AB296 /* DashWalletTests */,
 				75001D3D1A1EE89500585F55 /* submodules */,
 				FB3952341B918EEF0013BA41 /* TodayExtension */,
+				DC807F141A9F652F00125DF2 /* groestl */,
 			);
 		};
 /* End PBXProject section */
@@ -1136,8 +1164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBE49E9C1B7BE73C0020FAA6 /* NSAttributedString+Attachments.m in Sources */,
-				752E28AA19234AE300DB5A3C /* BRAddressEntity.m in Sources */,
+				732A77AE1C31BD2E00D99E75 /* BRAddressEntity.m in Sources */,
 				75AA5F55194143D5003F23BD /* BRBouncyBurgerButton.m in Sources */,
 				752E28AB19234AE300DB5A3C /* BRMerkleBlockEntity.m in Sources */,
 				752E28AC19234AE300DB5A3C /* BRPeerEntity.m in Sources */,
@@ -1271,11 +1298,6 @@
 			isa = PBXTargetDependency;
 			target = 75D5F3BD191EC270004AB296 /* dashwallet */;
 			targetProxy = 75D5F3EA191EC270004AB296 /* PBXContainerItemProxy */;
-		};
-		FB3952411B918EEF0013BA41 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB3952341B918EEF0013BA41 /* TodayExtension */;
-			targetProxy = FB3952401B918EEF0013BA41 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1469,7 +1491,7 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "BreadWallet/DashWallet-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkcoinfoundation.dashwallettest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedbodiwala.groestlwallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = "-Wno-gnu";
@@ -1599,7 +1621,7 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "BreadWallet/DashWallet-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkcoinfoundation.dashwallettest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedbodiwala.groestlwallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = "-Wno-gnu";
@@ -1614,8 +1636,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = dashwallet.entitlements;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreadWallet/DashWallet-Prefix.pch";
 				GCC_WARN_PEDANTIC = YES;
@@ -1627,9 +1649,9 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "BreadWallet/DashWallet-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkcoinfoundation.dashwallettest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedbodiwala.groestlwallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "99e0c0fc-72e4-4b33-bf81-2a2713acbf61";
+				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = "-Wno-gnu";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1679,13 +1701,64 @@
 			};
 			name = Release;
 		};
+		DC807F171A9F652F00125DF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DC807F181A9F652F00125DF2 /* GCov_Build */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = GCov_Build;
+		};
+		DC807F191A9F652F00125DF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
 		FB3952431B918EEF0013BA41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1699,9 +1772,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkcoinfoundation.dashwallettest.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedbodwala.groestlwallettest.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2e384cb7-0b09-4de2-8d11-2a1165c30e72";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1712,7 +1785,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1723,9 +1796,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkcoinfoundation.dashwallettest.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedbodwala.groestlwallettest.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2e384cb7-0b09-4de2-8d11-2a1165c30e72";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = GCov_Build;
@@ -1736,7 +1809,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1747,9 +1820,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkcoinfoundation.dashwallettest.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedbodwala.groestlwallettest.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "652a9a0e-cc81-458e-948d-cf7f72116590";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1793,6 +1866,16 @@
 				75D5F3FA191EC270004AB296 /* Debug */,
 				754F4BCF194BBA94004AD9CA /* GCov_Build */,
 				75D5F3FB191EC270004AB296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC807F161A9F652F00125DF2 /* Build configuration list for PBXNativeTarget "groestl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC807F171A9F652F00125DF2 /* Debug */,
+				DC807F181A9F652F00125DF2 /* GCov_Build */,
+				DC807F191A9F652F00125DF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

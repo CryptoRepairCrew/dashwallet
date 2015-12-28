@@ -28,11 +28,11 @@
 #import "NSData+Dash.h"
 
 #define MAX_TIME_DRIFT    (2*60*60)     // the furthest in the future a block is allowed to be timestamped
-#define MAX_PROOF_OF_WORK 0x1e0ffff0u   // highest value for difficulty target (higher values are less difficult)
+#define MAX_PROOF_OF_WORK 0x1e0fffff   // highest value for difficulty target (higher values are less difficult)
 
 
 // from https://en.bitcoin.it/wiki/Protocol_specification#Merkle_Trees
-// Merkle trees are binary trees of hashes. Merkle trees in darkcoin use x11, a cobined hash of 11 of the NIST
+// Merkle trees are binary trees of hashes. Merkle trees in darkcoin use  , a cobined hash of 11 of the NIST
 // SHA-3 finalists. If, when forming a row in the tree (other than the root of the tree), it would have an odd
 // number of elements, the final hash is duplicated to ensure that the row has an even number of hashes. First
 // form the bottom row of the tree with the ordered x11 hashes of the byte streams of the transactions in the block.
@@ -108,7 +108,7 @@
     [d appendUInt32:_timestamp];
     [d appendUInt32:_target];
     [d appendUInt32:_nonce];
-    _blockHash = d.x11;
+    _blockHash = d.HashGroestl_2;
 
     return self;
 }
@@ -232,12 +232,113 @@ totalTransactions:(uint32_t)totalTransactions hashes:(NSData *)hashes flags:(NSD
 
 - (BOOL)verifyDifficultyWithPreviousBlocks:(NSMutableDictionary *)previousBlocks
 {
-    uint32_t darkGravityWaveTarget = [self darkGravityWaveTargetWithPreviousBlocks:previousBlocks];
+//    int V3_FORK_HEIGHT = 99999;
+//    NSLog(@"Checking Difficulties");
+//    uint32_t darkGravityWaveTarget;
+//    if (self.height > V3_FORK_HEIGHT)
+//    {
+//        NSLog(@"Checking DGW V3 Difficulty at Block %d", self.height);
+//        darkGravityWaveTarget = [self darkGravityWaveV3TargetWithPreviousBlocks:previousBlocks];
+//    }
+//    else
+//    {
+//        darkGravityWaveTarget = [self darkGravityWaveTargetWithPreviousBlocks:previousBlocks];
+//    }
+    uint32_t darkGravityWaveTarget = [self darkGravityWaveV3TargetWithPreviousBlocks:previousBlocks];
     int32_t diff = (self.target & 0x00ffffffu) - darkGravityWaveTarget;
-    return (abs(diff) < 2); //the core client has is less precise with a rounding error that can sometimes cause a problem. We are very rarely 1 off
+    return true;
+    return (abs(diff) < 10);
+
 }
 
 -(int32_t)darkGravityWaveTargetWithPreviousBlocks:(NSMutableDictionary *)previousBlocks {
+    /* current difficulty formula, darkcoin - based on DarkGravity v1, original work done by evan duffield, modified for iOS */
+    BRMerkleBlock *BlockLastSolved = previousBlocks[self.prevBlock];
+    BRMerkleBlock *BlockReading    = previousBlocks[self.prevBlock];
+    int64_t nBlockTimeAverage = 0;
+    int64_t nBlockTimeAveragePrev = 0;
+    int64_t nBlockTimeCount = 0;
+    int64_t nBlockTimeSum2 = 0;
+    int64_t nBlockTimeCount2 = 0;
+    int64_t LastBlockTime = 0;
+    int64_t PastBlocksMin = 12;
+    int64_t PastBlocksMax = 120;
+    int64_t CountBlocks = 0;
+    int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
+    long double PastDifficultyAverage = 0;
+    long double PastDifficultyAveragePrev = 0;
+    
+    if (_prevBlock == NULL || BlockLastSolved.height == 0 || BlockLastSolved.height < PastBlocksMin) {
+        // This is the first block or the height is < PastBlocksMin
+        // Return minimal required work. (1e0ffff0)
+        return MAX_PROOF_OF_WORK & 0x00ffffffu;
+    }
+    
+    // loop over the past n blocks, where n == PastBlocksMax
+    for (unsigned int i = 1; BlockReading && BlockReading.height > 0; i++) {
+        if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
+        CountBlocks++;
+        
+        if(CountBlocks <= PastBlocksMin) {
+            if (CountBlocks == 1) { PastDifficultyAverage = BlockReading->_target; }
+            else { PastDifficultyAverage = ((BlockReading->_target - PastDifficultyAveragePrev) / CountBlocks) + PastDifficultyAveragePrev; }
+            PastDifficultyAveragePrev = PastDifficultyAverage;
+        }
+
+        
+        // If this is the second iteration (LastBlockTime was set)
+        if(LastBlockTime > 0){
+            int64_t Diff = LastBlockTime - BlockReading.timestamp;
+            if(Diff < 0 )
+            {
+                Diff = 0;
+            }
+            if(nBlockTimeCount <= PastBlocksMin) {
+                nBlockTimeCount++;
+                
+                if (nBlockTimeCount == 1) { nBlockTimeAverage = Diff; }
+                else { nBlockTimeAverage = ((Diff - nBlockTimeAveragePrev) / nBlockTimeCount) + nBlockTimeAveragePrev; }
+                nBlockTimeAveragePrev = nBlockTimeAverage;
+
+            }
+            nBlockTimeCount2++;
+            nBlockTimeSum2 += Diff;
+        }
+        LastBlockTime = BlockReading.timestamp;
+        
+        if (BlockReading->_prevBlock == NULL) { assert(BlockReading); break; }
+        BlockReading = previousBlocks[BlockReading.prevBlock];
+    }
+    
+    long double darkTarget = PastDifficultyAverage;
+    if (nBlockTimeCount != 0 && nBlockTimeCount2 != 0) {
+        double SmartAverage = (((nBlockTimeAverage)*0.7)+((nBlockTimeSum2 / nBlockTimeCount2)*0.3));
+        if(SmartAverage < 1) SmartAverage = 1;
+        double Shift = nTargetSpacing/SmartAverage;
+
+        int64_t nActualTimespan = (CountBlocks*nTargetSpacing)/Shift;
+        int64_t nTargetTimespan = (CountBlocks*nTargetSpacing);
+        if (nActualTimespan < nTargetTimespan/3)
+            nActualTimespan = nTargetTimespan/3;
+        if (nActualTimespan > nTargetTimespan*3)
+            nActualTimespan = nTargetTimespan*3;
+
+        // Retarget
+        darkTarget *= nActualTimespan;
+        darkTarget /= nTargetTimespan;
+    }
+    
+    // If calculated difficulty is lower than the minimal diff, set the new difficulty to be the minimal diff.
+    if (darkTarget > MAX_PROOF_OF_WORK){
+        darkTarget = MAX_PROOF_OF_WORK;
+    }
+    
+    // Return the new diff.
+    return (uint32_t)darkTarget;
+}
+
+
+-(int32_t)darkGravityWaveV3TargetWithPreviousBlocks:(NSMutableDictionary *)previousBlocks {
     /* current difficulty formula, darkcoin - based on DarkGravity v3, original work done by evan duffield, modified for iOS */
     BRMerkleBlock *previousBlock = previousBlocks[self.prevBlock];
     
@@ -245,19 +346,22 @@ totalTransactions:(uint32_t)totalTransactions hashes:(NSData *)hashes flags:(NSD
     int64_t lastBlockTime = 0;
     int64_t blockCount = 0;
     int64_t sumTargets = 0;
+    int64_t PastBlocksMin = 24;
+    int64_t PastBlocksMax = 24;
     
-    if (_prevBlock == NULL || previousBlock.height == 0 || previousBlock.height < DGW_PAST_BLOCKS_MIN) {
+    if (_prevBlock == NULL || previousBlock.height == 0 || previousBlock.height < PastBlocksMin) {
         // This is the first block or the height is < PastBlocksMin
         // Return minimal required work. (1e0ffff0)
         return MAX_PROOF_OF_WORK & 0x00ffffffu;
     }
     
     BRMerkleBlock *currentBlock = previousBlock;
+    
     // loop over the past n blocks, where n == PastBlocksMax
-    for (blockCount = 1; currentBlock && currentBlock.height > 0 && blockCount<=DGW_PAST_BLOCKS_MAX; blockCount++) {
+    for (blockCount = 1; currentBlock && currentBlock.height > 0 && blockCount<= PastBlocksMax; blockCount++) {
         
         // Calculate average difficulty based on the blocks we iterate over in this for loop
-        if(blockCount <= DGW_PAST_BLOCKS_MIN) {
+        if(blockCount <= PastBlocksMin) {
             uint32_t currentTarget = currentBlock.target & 0x00ffffffu;
             if (blockCount == 1) {
                 sumTargets = currentTarget * 2;
@@ -285,7 +389,7 @@ totalTransactions:(uint32_t)totalTransactions hashes:(NSData *)hashes flags:(NSD
     long double darkTarget = sumTargets / (long double)(blockCount);
     
     // nTargetTimespan is the time that the CountBlocks should have taken to be generated.
-    long double nTargetTimespan = (blockCount - 1)* (2.5*60);
+    long double nTargetTimespan = (blockCount - 1)* (1*60);
     
     // Limit the re-adjustment to 3x or 0.33x
     // We don't want to increase/decrease diff too much.
